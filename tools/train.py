@@ -45,6 +45,8 @@ def main(config):
 
     config['arch']['backbone']['in_channels'] = 3 if config['dataset']['train']['dataset']['args']['img_mode'] != 'GRAY' else 1
     model = build_model(config['arch'])
+    total = sum([param.nelement() for param in model.parameters()])
+    print("Number of parameter: %.2fM" % (total / 1e6))
 
     post_p = get_post_processing(config['post_processing'])
     metric = get_metric(config['metric'])
