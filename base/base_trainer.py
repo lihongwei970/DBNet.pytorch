@@ -104,6 +104,8 @@ class BaseTrainer:
             self.epoch_result = self._train_epoch(epoch)
             if self.config['lr_scheduler']['type'] != 'WarmupPolyLR':
                 self.scheduler.step()
+
+            self.logger_info("Memory stat:\n{}".format(torch.cuda.memory_summary(device=self.device, abbreviated=True)))
             self._on_epoch_finish()
         if self.config['local_rank'] == 0 and self.tensorboard_enable:
             self.writer.close()

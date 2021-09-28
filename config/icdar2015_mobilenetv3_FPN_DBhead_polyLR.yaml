@@ -41,7 +41,7 @@ lr_scheduler:
 trainer:
   seed: 2
   epochs: 1200
-  log_iter: 200
+  log_iter: 500
   show_images_iter: 50
   resume_checkpoint: ''
   finetune_checkpoint: ''
@@ -52,7 +52,7 @@ dataset:
     dataset:
       args:
         data_path:
-          - ./datasets2018/train.txt
+          - ./datasets/train.txt
         img_mode: RGB
     loader:
       batch_size: 1
@@ -64,7 +64,7 @@ dataset:
     dataset:
       args:
         data_path:
-          - ./datasets2018/test.txt
+          - ./datasets/test.txt
         pre_processes:
           - type: ResizeShortSize
             args:
