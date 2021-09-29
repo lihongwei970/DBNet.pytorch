@@ -3,7 +3,7 @@ base: ['config/icdar2015.yaml']
 arch:
   type: Model
   backbone:
-    type: resnet18
+    type: deformable_resnet50
     pretrained: true
   neck:
     type: FPN
@@ -41,7 +41,7 @@ lr_scheduler:
 trainer:
   seed: 2
   epochs: 1200
-  log_iter: 10
+  log_iter: 500
   show_images_iter: 50
   resume_checkpoint: ''
   finetune_checkpoint: ''

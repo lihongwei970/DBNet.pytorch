@@ -43,7 +43,7 @@ trainer:
   epochs: 1200
   log_iter: 500
   show_images_iter: 50
-  resume_checkpoint: ''
+  resume_checkpoint:'output/DBNet_MobileNetV3_FPN_DBHead/checkpoint/model_latest.pth'
   finetune_checkpoint: ''
   output_dir: output
   tensorboard: true
