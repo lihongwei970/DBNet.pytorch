@@ -105,6 +105,7 @@ class MobileNetV3(nn.Module):
         self.scale = kwargs.get('scale', 0.5)
         model_name = kwargs.get('model_name', 'large')
         self.inplanes = 16
+        print('model name', model_name)
         if model_name == "large":
             self.cfg = [
                 # k, exp, c,  se,     nl,  s,

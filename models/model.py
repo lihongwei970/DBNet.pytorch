@@ -24,6 +24,13 @@ class Model(nn.Module):
         self.backbone = build_backbone(backbone_type, **model_config.backbone)
         self.neck = build_neck(neck_type, in_channels=self.backbone.out_channels, **model_config.neck)
         self.head = build_head(head_type, in_channels=self.neck.out_channels, **model_config.head)
+        total = sum([param.nelement() for param in self.backbone.parameters()])
+        print("Number of parameter of backbone: %.2fM" % (total / 1e6))
+        total = sum([param.nelement() for param in self.neck.parameters()])
+        print("Number of parameter of neck: %.2fM" % (total / 1e6))
+        total = sum([param.nelement() for param in self.head.parameters()])
+        print("Number of parameter of head: %.2fM" % (total / 1e6))
+
         self.name = f'{backbone_type}_{neck_type}_{head_type}'
 
     def forward(self, x):

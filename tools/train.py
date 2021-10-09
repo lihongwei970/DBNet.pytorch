@@ -47,7 +47,6 @@ def main(config):
     model = build_model(config['arch'])
     total = sum([param.nelement() for param in model.parameters()])
     print("Number of parameter: %.2fM" % (total / 1e6))
-    print('git added')
     post_p = get_post_processing(config['post_processing'])
     metric = get_metric(config['metric'])
 
